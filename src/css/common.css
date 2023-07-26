@@ -16,3 +16,26 @@ img {
   display: block;
   max-width: 100%;
 }
+
+#datetime-picker {
+  font-size: 20px;
+}
+
+button {
+  font-size: 20px;
+}
+
+.timer {
+  display: flex;
+  gap: 30px;
+  text-align: center;
+}
+
+.value {
+  display: block;
+  font-size: 50px;
+}
+
+.label {
+  font-size: 20px;
+}
