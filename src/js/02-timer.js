@@ -11,7 +11,6 @@ const refs = {
     dataSeconds: document.querySelector(".value[data-seconds]")
 };
 
-// refs.startBtn.disabled = true;
 disableStartBtn();
 
 const options = {
@@ -35,10 +34,13 @@ refs.startBtn.addEventListener("click", countDown);
 function countDown() {
     let timer = getSelectedDate() - getCurrentDate();
     disableStartBtn();
+    disableDatetimePicker();
 
-    setInterval(() => {
+    const intervalId = setInterval(() => {
         timer -= 1000;
         if(timer <= 0) {
+            disableDatetimePicker();
+            clearInterval(intervalId);
             return;
         }
 
@@ -60,6 +62,10 @@ function getSelectedDate() {
 
 function disableStartBtn() {
     refs.startBtn.disabled = !refs.startBtn.disabled;
+}
+
+function disableDatetimePicker() {
+    refs.datetimePicker.disabled = !refs.datetimePicker.disabled;
 }
 
 function convertMs(ms) {
